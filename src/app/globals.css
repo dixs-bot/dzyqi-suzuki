@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #07080c;
+  --ivory: #f4f1ea;
+  --metallic: #b8bec6;
+  --navy: #0b1220;
+  --accent: #1a73c7;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background: var(--ink);
+  color: var(--ivory);
+  min-height: 100%;
+}
+
+body {
+  font-feature-settings: "ss01" on, "cv11" on;
+}
+
+::selection {
+  background: #1a73c7;
+  color: #f4f1ea;
+}
+
+*:focus-visible {
+  outline: 2px solid #2b8ef0;
+  outline-offset: 3px;
+}
+
+.luxury-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #b8bec6, transparent);
+}
+
+.vehicle-silhouette {
+  background:
+    radial-gradient(ellipse at 50% 70%, rgba(26, 115, 199, 0.18), transparent 55%),
+    linear-gradient(180deg, #121a2c 0%, #07080c 100%);
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #f4f1ea;
+  pointer-events: none;
+  z-index: 80;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(244, 241, 234, 0.45);
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 80;
+  transform: translate(-50%, -50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (hover: none) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
